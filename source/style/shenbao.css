@@ -1,0 +1,84 @@
+.main{
+	width: 900px;
+	height: 1000px;
+	margin: 0 auto;
+	background: fuchsia;
+	text-align: center;
+}
+.main h1{
+	/*margin: 0 auto;*/
+}
+.fenzu{
+	width: 800px;
+	height: 75px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.fenzu li{
+	
+	width: 200px;
+	height: 75px;
+	line-height: 75px;
+	text-align: center;
+	color: white;
+	float: left;
+	font-size: 20px;
+	background: salmon;
+}
+
+.sousuo{
+	clear: both;
+	width: 230px;
+	height: 40px;
+	float: right;
+	margin-right: 50px;
+	margin-top: 10px;
+	background: white;
+	border-radius: 10px;
+	
+}
+.sousuo input{
+	/*float: right;*/
+	width: 160px;
+	height: 40px;
+	outline: none;
+	border: none;
+	font-size: 15px;
+	/*margin: ;*/
+	padding-left: 20px;
+}
+.sousuo img{
+	display: block;
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 5px;
+}
+
+.mingdan{
+	width: 800px;
+	height: 600px;
+	margin: 60px auto 0 auto;
+	background: blanchedalmond;
+	border-top: 15px solid cadetblue;
+}
+.liebiao{
+	width: 700px;
+	margin: 0 auto;
+}
+.liebiao li{
+	width: 700px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 18px;
+	border-bottom: 1px solid silver;
+}
+.liebiao li span{
+	display: inline-block;
+	width: 175px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 16px;
+	border-bottom: 1px solid silver;
+}

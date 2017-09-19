@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: #eef3fa;
+				
+			}
+			.main{
+				width: 1100px;
+				/*background: #abb9c4;*/
+				margin: 0 auto;
+				overflow: hidden;
+				padding-bottom: 30px;
+				/*opacity: .8;*/	
+			}
+			.xinxi{
+				width: 800px;
+				padding-bottom: 40px;
+				/*height: 770px;*/
+				overflow: hidden;
+				background: white;
+				margin: 0 auto;
+				opacity: .95;
+				/*margin-top: 40px;*/
+			}
+			.xinxi .biaoti{
+				margin-left: 60px;
+				height: 50px;
+				width: 500px;
+			}
+			.xinxi img{
+				width: 50px;
+				height: 50px;
+				float: left;
+				margin-top: 20px;
+			}
+			.xinxi .biaoti h2{
+				float: left;
+				margin-top: 28px;
+			}
+			.xinxi ul{
+				padding: 20px 60px 20px 60px;
+			}
+			.xinxi ul p{
+				letter-spacing: 5px;
+				font-size: 19px;
+			}
+			.xinxi ul .xinxi-data{
+				letter-spacing: 3px;
+				padding-left: 40px;
+				font-size: 17px;
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				color: gray;
+				border: 1px solid gray;
+				border-radius: 5px;
+				outline: none;
+			}
+			.xinxi ul .textarea-data{
+				font-size: 17px;
+				width: 636px;
+/*				height: 150px;*/
+				border-radius: 10px;
+				color: gray;
+				border: 1px solid gray;
+				outline: none;
+				padding: 20px;
+			}
+			.xinxi li{
+				list-style: none;
+				margin-top: 10px;
+			}
+			.fl{
+				float: left;
+			}
+			.fr{
+				float: right;
+			}
+			.cb{
+				clear: both;
+			}
+			.fs19{
+				font-size: 19px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main" id="box">
+			<div class="xinxi">
+				<div class="biaoti">
+					<img src="public/images/0.2.png"/>
+					<h2>详细信息</h2>
+				</div>
+				<ul>
+					<li class="fl">
+						<p class="fs19">姓名：</p>
+						<div class="xinxi-data">{{ name }}</div>
+						
+						
+					</li>
+					<li class="fr">
+						<p class="fs19">性别：</p>
+						<div class="xinxi-data">{{ sex }}</div>						
+					</li>
+					<li class="fl cb">
+						<p class="fs19">专业班级：</p>
+						<div class="xinxi-data">{{ zy }}</div>
+						
+					</li>
+					<li class="fr">
+						<p class="fs19">想要加入的部门：</p>
+						<div class="xinxi-data">{{ bm }}</div>
+						
+					</li>
+					<li class="fl cb">
+						<p class="fs19">学号：</p>
+						<div class="xinxi-data">{{ xh }}</div>
+						
+					</li>
+					<li class="fr">
+						<p class="fs19">tel：</p>
+						<div class="xinxi-data">{{ tel }}</div>
+						
+					</li>
+					<li class="fl cb">
+						<p class="fs19">专业技能：</p>
+						<div class="textarea-data">{{ jn }}</div>
+						
+						
+					</li>
+					<li class="fl cb">
+						<p class="fs19">自我能力描述：</p>
+						<div class="textarea-data">{{ nl }}</div>	
+					
+					</li>	
+					
+				</ul>
+				
+			</div>
+		</div>
+		
+		<script src="public/javascript/vue.js"></script>
+		<script src="bower_components/axios/dist/axios.min.js"></script>
+		<script>
+			
+			window.onload = function(){
+				
+	
+				var app = new Vue({
+					el: '#box',
+					data: {
+							name: '',
+							sex: '',
+							zy: '',
+							bm: '',
+							xh: '',
+							tel: '',
+							jn: '',
+							nl: ''
+					},
+					mounted() {
+						var _this = this;
+//						alert("ss");
+						axios.get('/user')
+						.then(function (response) {
+							var jsonText = JSON.parse(response);
+							_this.name = jsonText.name;
+							_this.sex = jsonText.sex;
+							_this.zy = jsonText.zy;
+							_this.bm = jsonText.bm;
+							_this.xh = jsonText.xh;
+							_this.tel = jsonText.tel;
+							_this.jn = jsonText.jn;
+							_this.nl = jsonText.nl;
+							
+//							
+						})
+						.catch(function (error) {
+							alert(error);
+						});
+
+						
+					}
+					
+				});
+		
+					
+			}
+		</script>
+	
+	</body>
+</html>
